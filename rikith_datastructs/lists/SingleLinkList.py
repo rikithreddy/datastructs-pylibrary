@@ -1,4 +1,4 @@
-from common import Node
+from ..common import Node
 from sys import stdout
 from copy import copy
 
@@ -31,7 +31,7 @@ class SingleLinkList:
             self.tail = new_node
 
     def get_first_element(self):
-        if not self.head.next:
+        if self.head.next is not None:
             return self.head.next.data
         else:
             # TODO: Add Error log
