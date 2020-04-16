@@ -107,3 +107,6 @@ class SingleLinkList:
             return True
         except StopIteration:
             return False
+
+        # TODO: Add in Nth position
+        # TODO: Add Pop from back
