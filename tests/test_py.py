@@ -1,4 +1,4 @@
-from rikith_datastructs.lists.SingleLinkList import SingleLinkList
+from datastructs.lists.SingleLinkList import SingleLinkList
 import unittest
 
 class TestList(unittest.TestCase):

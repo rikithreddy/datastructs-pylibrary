@@ -3,7 +3,6 @@ from sys import stdout
 from copy import copy
 
 class SingleLinkList:
-
     def __init__(self, has_tail=True):
         self.head = Node()
         self.has_tail = has_tail
