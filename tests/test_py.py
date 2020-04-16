@@ -18,6 +18,10 @@ class TestSingleLinkList(unittest.TestCase):
         self.assertEqual(custom_list.pop_first_element(), 0)
         self.assertFalse(custom_list.list_empty())
 
+        __, index = custom_list.find_element(2).__next__()
+        self.assertEqual(index, 1)
+        self.assertFalse(custom_list.has_element(0))
+        self.assertTrue(custom_list.has_element(1))
 
     def test_add_remove(self):
         custom_list = SingleLinkList()

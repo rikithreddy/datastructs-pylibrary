@@ -84,4 +84,26 @@ class SingleLinkList:
             # TODO: Add Error
             print("List is empty")
 
+    def find_element(self, data):
+        '''
+        Check if the list has a node with the given data
+        Returns an enumerable object for each node found.
+        '''
+        temp = self.head.next
+        index = 0
+        while temp!=None:
+            if temp.data == data:
+                yield temp, index
+
+            temp = temp.next
+            index += 1
     
+    def has_element(self, data):
+        '''
+        Check if the list has a particular data object
+        '''
+        try:
+            __ = next(self.find_element(data))
+            return True
+        except StopIteration:
+            return False
