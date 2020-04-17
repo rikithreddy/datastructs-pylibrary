@@ -19,9 +19,14 @@ package:
 	rm $(SOURCEDIR)/*.rst
 	@$(SPHINXDOC) -o $(SOURCEDIR) $(PACKAGEDIR)
 	mv $(SOURCEDIR)/modules.rst $(SOURCEDIR)/index.rst
+	make html
 
 buildandcommithtml: html
 	cd $(BUILDDIR)/html; git add . ; git commit -m "rebuilt docs"; git push origin gh-pages
+
+make packageandpublish:
+	make package
+	make buildandcommithtml
 
 .PHONY: help Makefile
 
