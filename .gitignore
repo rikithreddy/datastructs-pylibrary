@@ -1,7 +1,0 @@
-*.pyc
-.vscode
-venv/
-rikithreddy.egg-info
-build/
-dist/
-
