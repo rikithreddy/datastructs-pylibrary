@@ -3,10 +3,16 @@ from sys import stdout
 from copy import copy
 
 class SingleLinkList:
-    def __init__(self, has_tail=True):
+
+    def _check_value(self, elem):
+        if not isinstance(elem, self.elem_type):
+            raise ValueError
+
+    def __init__(self, elem_type, has_tail=True):
         self.head = Node()
         self.has_tail = has_tail
         self.len = 0
+        self.elem_type = elem_type
 
         if has_tail:
             self.tail = self.head
@@ -24,6 +30,7 @@ class SingleLinkList:
         return temp
 
     def add_to_front(self, data):
+        self._check_value(data)
         new_node = Node(data=data, next=self.head.next)
         self.head.next = new_node
 
@@ -37,12 +44,13 @@ class SingleLinkList:
         else:
             # TODO: Add Error
             print("List is empty")
+            raise IndexError
 
     def pop_first_element(self):
         if self.head and not self.head.next:
             # TODO: Add error
             print("Error List is empty")
-            return
+            raise IndexError
         if self.has_tail and self.tail == self.head.next:
             self.tail = self.head
         node = self.head.next
@@ -60,6 +68,7 @@ class SingleLinkList:
         print()
 
     def add_to_back(self, data):
+        self._check_value(data)
         node = Node(data=data)
 
         self.len += 1
@@ -83,6 +92,7 @@ class SingleLinkList:
         else:
             # TODO: Add Error
             print("List is empty")
+            raise IndexError
 
     def find_element(self, data):
         '''
@@ -103,7 +113,7 @@ class SingleLinkList:
         Check if the list has a particular data object
         '''
         try:
-            __ = next(self.find_element(data))
+            _ = next(self.find_element(data))
             return True
         except StopIteration:
             return False
