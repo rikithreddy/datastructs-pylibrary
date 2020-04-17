@@ -5,7 +5,9 @@
 # from the environment for the first two.
 SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
+SPHINXDOC   ?= sphinx-apidoc
 SOURCEDIR     = source
+PACKAGEDIR    = ../datastructs
 BUILDDIR      = ../../sphinxdoc-test-docs
 	
 
@@ -13,9 +15,13 @@ BUILDDIR      = ../../sphinxdoc-test-docs
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-buildandcommithtml: html latexpdf
+package:
+	rm $(SOURCEDIR)/*.rst
+	@$(SPHINXDOC) -o $(SOURCEDIR) $(PACKAGEDIR)
+	mv $(SOURCEDIR)/modules.rst $(SOURCEDIR)/index.rst
 
-    cd $(BUILDDIR)/html; git add . ; git commit -m "rebuilt docs"; git push origin gh-pages
+buildandcommithtml: html
+	cd $(BUILDDIR)/html; git add . ; git commit -m "rebuilt docs"; git push origin gh-pages
 
 .PHONY: help Makefile
 

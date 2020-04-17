@@ -4,4 +4,4 @@ venv/
 rikithreddy.egg-info
 build/
 dist/
-
+*.rst
