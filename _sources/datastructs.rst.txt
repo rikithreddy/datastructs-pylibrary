@@ -1,0 +1,33 @@
+datastructs package
+===================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   datastructs.arrays
+   datastructs.lists
+   datastructs.queues
+   datastructs.stacks
+
+Submodules
+----------
+
+datastructs.common module
+-------------------------
+
+.. automodule:: datastructs.common
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: datastructs
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,22 @@
+datastructs.arrays package
+==========================
+
+Submodules
+----------
+
+datastructs.arrays.SingleDimensionArray module
+----------------------------------------------
+
+.. automodule:: datastructs.arrays.SingleDimensionArray
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: datastructs.arrays
+   :members:
+   :undoc-members:
+   :show-inheritance:

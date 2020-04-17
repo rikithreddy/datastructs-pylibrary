@@ -1,0 +1,22 @@
+datastructs.stacks package
+==========================
+
+Submodules
+----------
+
+datastructs.stacks.ListStack module
+-----------------------------------
+
+.. automodule:: datastructs.stacks.ListStack
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: datastructs.stacks
+   :members:
+   :undoc-members:
+   :show-inheritance:

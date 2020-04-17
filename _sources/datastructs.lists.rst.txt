@@ -1,0 +1,22 @@
+datastructs.lists package
+=========================
+
+Submodules
+----------
+
+datastructs.lists.SingleLinkList module
+---------------------------------------
+
+.. automodule:: datastructs.lists.SingleLinkList
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: datastructs.lists
+   :members:
+   :undoc-members:
+   :show-inheritance:
