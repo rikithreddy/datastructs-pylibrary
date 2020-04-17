@@ -1,7 +1,7 @@
 from datastructs.stacks.ListStack import ListStack
 import unittest
 
-class TestArray(unittest.TestCase):
+class TestStack(unittest.TestCase):
 
 
     def test_list_stack(self):

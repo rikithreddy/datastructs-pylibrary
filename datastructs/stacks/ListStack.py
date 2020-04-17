@@ -19,4 +19,4 @@ class ListStack:
         return self.stack.pop_first_element()
     
     def push(self, elem_type):
-        return self.stack.add_to_front(elem_type)
+        self.stack.add_to_front(elem_type)
