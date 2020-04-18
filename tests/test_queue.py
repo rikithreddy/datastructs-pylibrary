@@ -1,20 +1,24 @@
-from datastructs.queues.ListQueue import ListQueue
 import unittest
+from datastructs.queues.ListQueue import ListQueue
+from datastructs.exceptions.custom import (
+                            InvalidDataType,
+                            QueueEmpty
+                            )
 
-class TestArray(unittest.TestCase):
+class TestQueue(unittest.TestCase):
 
 
     def test_list_queue(self):
         queue = ListQueue(int)
 
         self.assertTrue(queue.queue_empty())
-        self.assertRaises(IndexError, queue.dequeue)
-        self.assertRaises(IndexError, queue.next_key)
+        self.assertRaises(QueueEmpty, queue.dequeue)
+        self.assertRaises(QueueEmpty, queue.next_key)
 
         queue.enqueue(1)
         queue.enqueue(2)
         queue.enqueue(3)
-        self.assertRaises(ValueError, queue.enqueue, "4")
+        self.assertRaises(InvalidDataType, queue.enqueue, "4")
 
         self.assertEqual(queue.dequeue(), 1)
         self.assertEqual(queue.next_key(), 2)

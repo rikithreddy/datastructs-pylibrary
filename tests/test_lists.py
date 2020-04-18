@@ -1,12 +1,16 @@
-from datastructs.lists.SingleLinkList import SingleLinkList
 import unittest
+from datastructs.lists.SingleLinkList import SingleLinkList
+from datastructs.exceptions.custom import (
+                                    InvalidDataType,
+                                    LinkedListEmpty
+                                    )
 
 class TestSingleLinkList(unittest.TestCase):
 
     def list_operations(self, custom_list):
-        self.assertRaises(IndexError, custom_list.pop_first_element)
-        self.assertRaises(IndexError, custom_list.get_first_element)
-        self.assertRaises(IndexError, custom_list.get_last_element)
+        self.assertRaises(LinkedListEmpty, custom_list.pop_first_element)
+        self.assertRaises(LinkedListEmpty, custom_list.get_first_element)
+        self.assertRaises(LinkedListEmpty, custom_list.get_last_element)
         self.assertTrue(custom_list.list_empty())
         custom_list.add_to_front(0)
         custom_list.add_to_back(1)
@@ -23,8 +27,8 @@ class TestSingleLinkList(unittest.TestCase):
         self.assertFalse(custom_list.has_element(0))
         self.assertTrue(custom_list.has_element(1))
 
-        self.assertRaises(ValueError, custom_list.add_to_front, "123")
-        self.assertRaises(ValueError, custom_list.add_to_back, "123")
+        self.assertRaises(InvalidDataType, custom_list.add_to_front, "123")
+        self.assertRaises(InvalidDataType, custom_list.add_to_back, "123")
 
     def test_add_remove(self):
         custom_list = SingleLinkList(int)

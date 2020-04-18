@@ -1,14 +1,29 @@
 from ..common import Node
 
+from ..exceptions.custom import (
+                        InvalidArraySize,
+                        InvalidDataType,
+                        InvalidArrayIndex,
+                        InvalidArrayInitializerSize
+                        )
+
 class SingleDimensionArray:
 
     def _check_index(self, index):
         if index < 0 or index >= self.size:
-            raise IndexError
+            raise InvalidArrayIndex(
+                            "Expected range of index 0 to {}, Provided {}".
+                            format(self.size, index)
+                            )
 
     def _check_value(self, elem):
         if not isinstance(elem, self.elem_type):
-            raise ValueError
+            raise InvalidDataType(
+                            "Expected data object of {}, Recieved {}".format(
+                                self.elem_type,
+                                type(elem)
+                                )
+                            )
 
     def __init__(self, elem_type, size, init=[]):
         self.size = size
@@ -21,8 +36,7 @@ class SingleDimensionArray:
                     self._check_value(elem)
                     self.array[id].data = elem          
             else:
-                print("Invalid initialization size")
-                raise ValueError
+                raise InvalidArrayInitializerSize
     
     def get(self, index):
         self._check_index(index)

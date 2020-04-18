@@ -1,4 +1,8 @@
 from ..lists.SingleLinkList import SingleLinkList
+from ..exceptions.custom import (
+                    StackUnderFlowException,
+                    LinkedListEmpty
+                    )
 
 class ListStack:
 
@@ -12,11 +16,14 @@ class ListStack:
     
     def top_elem(self):
         if self.stack_empty():
-            raise IndexError
+            raise StackUnderFlowException
         return self.top.next.data
     
     def pop(self):
-        return self.stack.pop_first_element()
-    
+        try:
+            return self.stack.pop_first_element()
+        except LinkedListEmpty:
+            raise StackUnderFlowException
+
     def push(self, elem_type):
         self.stack.add_to_front(elem_type)

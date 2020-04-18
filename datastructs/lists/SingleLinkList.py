@@ -2,11 +2,21 @@ from ..common import Node
 from sys import stdout
 from copy import copy
 
+from ..exceptions.custom import (
+                        InvalidDataType,
+                        LinkedListEmpty
+                        )
+
 class SingleLinkList:
 
     def _check_value(self, elem):
         if not isinstance(elem, self.elem_type):
-            raise ValueError
+            raise InvalidDataType(
+                            "Expected data object of {}, Recieved {}".format(
+                                self.elem_type,
+                                type(elem)
+                                )
+                            )
 
     def __init__(self, elem_type, has_tail=True):
         self.head = Node()
@@ -42,15 +52,12 @@ class SingleLinkList:
         if self.head.next is not None:
             return self.head.next.data
         else:
-            # TODO: Add Error
-            print("List is empty")
-            raise IndexError
+            raise LinkedListEmpty
 
     def pop_first_element(self):
         if self.head and not self.head.next:
-            # TODO: Add error
-            print("Error List is empty")
-            raise IndexError
+            raise LinkedListEmpty
+        
         if self.has_tail and self.tail == self.head.next:
             self.tail = self.head
         node = self.head.next
@@ -90,9 +97,7 @@ class SingleLinkList:
         if not self.list_empty():
             return self.get_last_node().data
         else:
-            # TODO: Add Error
-            print("List is empty")
-            raise IndexError
+            raise LinkedListEmpty
 
     def find_element(self, data):
         '''
