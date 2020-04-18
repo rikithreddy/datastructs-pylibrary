@@ -1,4 +1,8 @@
 from ..lists.SingleLinkList import SingleLinkList
+from ..exceptions.custom import (
+                            QueueEmpty,
+                            LinkedListEmpty
+                            )
 
 class ListQueue:
 
@@ -12,11 +16,14 @@ class ListQueue:
     
     def next_key(self):
         if self.queue_empty():
-            raise IndexError
+            raise QueueEmpty
         return self.top.next.data
     
     def enqueue(self, key):
         self.queue.add_to_back(key)
     
     def dequeue(self):
-        return self.queue.pop_first_element()
+        try:
+            return self.queue.pop_first_element()
+        except LinkedListEmpty:
+            raise QueueEmpty

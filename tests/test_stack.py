@@ -1,5 +1,9 @@
-from datastructs.stacks.ListStack import ListStack
 import unittest
+from datastructs.stacks.ListStack import ListStack
+from datastructs.exceptions.custom import (
+                    StackUnderFlowException,
+                    InvalidDataType,
+                    ) 
 
 class TestStack(unittest.TestCase):
 
@@ -8,13 +12,14 @@ class TestStack(unittest.TestCase):
         stack = ListStack(int)
 
         self.assertTrue(stack.stack_empty())
-        self.assertRaises(IndexError, stack.pop)
-        self.assertRaises(IndexError, stack.top_elem)
+        self.assertRaises(StackUnderFlowException, stack.pop)
+        self.assertRaises(StackUnderFlowException, stack.top_elem)
 
         stack.push(1)
         stack.push(2)
         stack.push(3)
-        self.assertRaises(ValueError, stack.push, "4")
+
+        self.assertRaises(InvalidDataType, stack.push, "4")
 
         self.assertEqual(stack.pop(), 3)
         self.assertEqual(stack.top_elem(), 2)
